@@ -1,0 +1,30 @@
+INSTRUCTIONS(for finding the URL of online shopping site)
+1) Click the link given below and open in new tab/window
+2) Identify the web address (URL) of the online shop (its usually just below the search bar eg.alphamusic.de) 
+3) Check whether the URL you found is valid  
+4) If its valid , paste the URL in the given field 
+5) If the URL is not valid or can't find it , just type "Invalid" into the field below
+
+robot: invalid=> do nothing. valid=> output is the input for further task
+
+INSTRUCTIONS(from the 1st page of URL)
+1. Open the given Online‐Shop‐URL and fill all the fields from the information of the URL.
+2. If there are logos of payment methods (e.g. MasterCard, Visa, PayPal etc.) select them all in dropdown menu following the order (from left to right, then from top to bottom) in which they appear.If the payment method is not included in dropdown then choose other and specify them in additional field.
+3. Also rank the logo sizes,1 being the biggest and 10 smallest. If logos are of similar size give these logos the same rank.
+4. Also mention if the logo shows any additional content besides the pure brand (e.g. like faster,safer etc.) or communicates additional benefits via additional text around the logo.
+5. If a PayPal logo is present choose which logo is being used.
+6. If additional ads or banners advertising payment methods, displayed on the online shop’s website.Mention these advertised payment method along with its position (e.g.top left corner of the online shop)
+
+
+INSTRUCTIONS (Final worker)
+1. Open the given Online‐Shop‐URL and fill all the fields from the information of the URL.
+2. Put any product into your shopping cart (ideally worth more than €20) and navigate to the shopping cart page where see if there are Express‐Purchase/Buy‐Buttons present,indicate them in the order they are being displayed in (from left to right, then top to bottom).
+3. Now go through the checkout process to get to the Payment Page, so that you can view the different payment methods that are available and also see if any payment method is selected as default.
+4. Indicate the order (from left to right, then from top to bottom) in which the payment methods are displayed on the Payment Page and also rank the logo sizes (1 being the biggest and 10 smallest. If logos are of similar size give these logos the same rank). Also mention if the logo shows any additional content and also mention additional features available with certain payment methods over others.
+5. Indicate if there is a Surcharge (only surcharge that customers from Germany pay for deliveries to Germany) for certain payment methods.
+6. If a PayPal logo is present we also need to mention which PayPal logo is being used.
+7. While mentioning the payment methods on starting page or any other pages follow the order in which they are being displayed, like from left to right and top to bottom.
+8. If there are additional information about the payment method or you noticed anything about payment methods the mention it in an additional info field. 
+
+Note:You must not complete the checkout process / purchase .
+

@@ -1,0 +1,789 @@
+<!doctype>
+<html>
+<head>
+
+  <script type="text/javascript" src="http://bizcardarmy-run.s3.amazonaws.com/jquery-1.6.2.min.js"></script>
+  <script type="text/javascript" src="http://bizcardarmy-run.s3.amazonaws.com/jquery-ui-1.8.16.custom.min.js"></script>
+  <script type="text/javascript" src="http://bizcardarmy-run.s3.amazonaws.com/jquery.easing.1.3.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+    <script src="http://tomb-finder.s3.amazonaws.com/facefiles/lightbox.js" type="text/javascript"></script> 
+  <script type="text/javascript" src="jquery.qtip-1.0.0-rc3.min.js"></script>
+</head>
+<style>
+
+
+#input_URL{
+	background-color: #E1E1E1;
+	    height: 27px;
+	    margin-left: 13em;
+	    margin-top: -28px;
+	    position: absolute;
+	    text-align: center;
+	    width: 700px;
+}
+#input{
+	padding-bottom: 20px;
+	text-align: left;
+}
+h3{
+  	margin-bottom: 3px;
+    padding-bottom: 2px;
+    padding-top: 3px;
+}
+
+#instruction {
+  border-bottom: 2px solid #000;
+  position: relative;
+  width: 915px;
+  padding-left: 17px;
+}
+#info_position{
+	width:185px;
+}
+
+h3{
+  	margin-bottom: 3px;
+    padding-bottom: 2px;
+    padding-top: 3px;
+}
+
+#payment_methods{
+	width:89%;
+	border:1px solid #42647F;
+}
+#cart_page{
+	width:89%;
+	margin-top: 15px;
+	border:1px solid #42647F;
+}
+#ads{
+	padding-top:2px;
+}
+#paypal{
+	width:89%;
+	margin-top: 15px;
+	border:1px solid #42647F;
+}
+legend {
+  	color: #42647F;
+	    font-size: 16px;
+	    font-style: italic;
+	    padding: 0.2em 0.5em;
+  }
+label {
+    padding-left: 9px;
+    text-align: left;
+}
+#btnDel{
+	text-align:right;
+}
+
+#instruction_content {
+  /*  padding-top: 10px;*/
+  display: none;
+}
+
+#click_for_instruction {
+  bottom: -27px;
+  margin-right: 35px;
+  position: absolute;
+  right: 25px;
+  text-align: right;
+}
+
+
+#show_instruction {
+  border: 2px solid #E1E1E1;
+  padding: 6px;
+  border-top: none;
+  cursor: pointer;
+  background-color: #E1E1E1;
+}
+#show_instruction:hover {
+  color: black;
+}
+
+.all_rounded_corners {
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -khtml-border-radius: 10px;
+  border-radius: 10px;
+}
+.bottom_rounded_corners {
+  -moz-border-radius-bottomright: 10px;
+  -moz-border-radius-bottomleft: 10px;
+  -webkit-border-bottom-right-radius: 10px;
+  -webkit-border-bottom-left-radius: 10px;
+}
+.right_rounded_corners {
+  -moz-border-radius-topright: 10px;
+  -moz-border-radius-bottomright: 10px;
+  -webkit-border-top-right-radius: 10px;
+  -webkit-border-bottom-right-radius: 10px;
+}
+#add_more{
+ 	padding-top: 10px;
+    text-align: left;
+}
+#add_one_more{
+ 	padding-top: 10px;
+    text-align: left;
+}
+a {
+  color: #42647F;
+}
+
+a:hover {
+  color: #4b96bd;
+}
+
+#wrapper {
+  width: 1025px;
+  padding-top: 2em;
+  margin: 0 auto;
+padding-left: 0.5em;
+}
+
+input{
+    font-size: 16px;
+	height: 23px;
+
+}
+
+#container{
+	background:white;
+  padding-top: 15px;
+font-family: Arial, Verdana, sans-serif;
+  width:960px;
+  min-height:510px;
+  margin-left:auto;
+  margin-right:auto;
+  border:2px solid black;
+  padding-bottom: 2px;
+  /*padding:35px 10px 10px 28px;
+    padding-left: 28px;*/
+}
+body {
+	background:cornflowerBlue;
+  font-family: Arial, Verdana, sans-serif;
+  width:960px;
+  min-height:510px;
+  margin-left:auto;
+  margin-right:auto;
+ /* border:2px solid black;*/
+ /* padding:35px 10px 10px 28px;
+   padding-left: 28px;*/
+}
+#other_payment_mtd{
+	width:150px;
+}
+#test{
+	padding-bottom:2px;
+}
+.form_submit{
+ 	text-align: right;
+    margin-right: 5em;
+    margin-top: 13px;
+}
+input.submitbutton {
+	font-size:111%;
+	width:125px;
+	height:25px;
+	margin-right: 10px;
+}
+
+.form_submit input[type='submit']:hover {
+  opacity: 1;
+}
+.header-txt{
+	font-size:25px;
+}
+fieldset{
+	padding-top:1px;
+}
+select{
+	height: 25px;
+	padding-top: 4px;
+}
+
+.clonedInput{
+  margin-bottom :5px;
+}
+
+.clonedInput1{
+  margin-bottom :5px;
+}
+
+.comments{
+  margin-top:7px
+}
+
+.comments input{
+  width:150px
+}
+
+#add_paymentmethod{
+  padding-left:11px;
+  color:blue;
+}
+
+ a{
+    color:#CD5C5C;
+}
+#show_instruction{
+	color:#87AAAE;
+}
+
+#add_additional_ads{
+  padding-left:11px;
+}
+
+#facebox { position: absolute;width: 100%;top: 0;left: 0;z-index: 1000000000;text-align: left; }
+#facebox .popup { position: relative;}
+#facebox table { margin: auto; border-collapse: collapse; }
+#facebox .body { padding: 10px; background: #fff; width: 580px; border: 8px solid #737373;}
+#facebox .loading {	text-align: center;}
+#facebox .footer { border-top: 1px solid #DDDDDD; padding-top: 5px;margin-top: 10px;text-align: right; }
+
+
+input.button_rem {
+    background-image: url('rem.png'); /* 16x16 px */
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    height: 23px;
+    padding-left: 10px;
+    vertical-align: middle;
+    width:25px;
+    float:right;
+}
+#default_payment {
+    padding-bottom: 12px;
+    padding-top: 13px;
+}
+#info{
+	padding-left: 75px;
+	padding-bottom:12px;
+}
+th{
+	padding-left:23px;
+	text-align:center;
+	vertical-align: text-bottom;
+}
+.payment_inputs .payment_name{
+	width:123px;
+}
+.payment_inputs td{
+	padding-left: 18px;
+	    width: 200px;
+}
+.payment_inputs input{
+	width:13px;
+}
+.payment_inputs .button_rem{
+	width:20px;
+}
+#cart_paymentmtd{
+	padding-left:1px;
+}
+tr {
+        background-color: white;
+        margin: 1px;
+      }
+tr.striped {
+        background-color:Cornsilk;
+      }
+</style>
+<body>
+<div id = "container">
+  <div id = "instruction">
+    <h3 class="header-txt"> Payment Method Information </h3>
+
+    <div id = "instruction_content" class = "hidden">
+      <div id = "instruction_text">
+        <div id = "general_instruction" style="display:none" >
+          <h3>Instructions</h3>
+          <ol>
+               <li>Open the given Online‐Shop‐URL and fill all the fields from the information of the URL.</li>
+			<li> Put any product into your shopping cart (ideally worth more than €20) and navigate to the shopping cart page where see if there are Express‐Purchase/Buy‐Buttons present,indicate them in the order they are being displayed in (from left to right, then top to bottom).</li>
+			<li>Now go through the checkout process to get to the Payment Page, so that you can view the different payment methods that are available and also see if any payment method is selected as default.</li>
+			<li>Indicate the order (from left to right, then from top to bottom) in which the payment methods are displayed on the Payment Page and also rank the logo sizes (1 being the biggest and 10 smallest. If logos are of similar size give these logos the same rank). Also mention if the logo shows any additional content and also mention additional features available with certain payment methods over others.</li>
+			<li> Indicate if there is a Surcharge (only surcharge that customers from Germany pay for deliveries to Germany) for certain payment methods.</li>
+			<li> If a PayPal logo is present we also need to mention which PayPal logo is being used.</li>
+			<li> While mentioning the payment methods on starting page or any other pages follow the order in which they are being displayed, like from left to right and top to bottom.</li>
+			<li> If there are additional information about the payment method or you noticed anything about payment methods the mention it in an additional info field. </li>
+
+			Note:You must not complete the checkout process / purchase .
+          </ol>
+        </div>
+      </div>
+    </div>
+    <div id = "click_for_instruction">
+      <a href = "#general_instruction" id = "show_instruction" rel="facebox" id="inst_button_text" class="bottom_rounded_corners">View Instructions</a>
+    </div>
+
+  </div>
+  <div id = "wrapper">
+      <form id = 'form-panel'>
+		<div id='input'>
+		<h3>Open this URL : </h3>
+        <div id='input_URL' class ='textarea'>
+          {{input_URL}}
+        </div>
+		</div>
+		 <fieldset id="cart_page">
+	          <legend>Shopping cart page</legend>
+	          <div class="additional_banners clonedInput1" id="ads">
+				<label id="cart_paymentmtd">Express-Purchase/Buy-Payment Method</label>
+				<select name ="output[express_purchase]" id="express_purchase" >
+                    <option value="">Select One</option>
+					<option value="None">None</option>
+                    <option value="Other">OTHER </option>
+                    <option value="Amazon (Payments – Bezahlen über Amazon)">Amazon (Payments- Bezahlen über Amazon)</option> 
+                    <option value="PayPal (Express‐Kauf mit PayPal)">PayPal (Express-Kauf mit PayPal) </option>
+                  </select>
+				<span id='cart_comment' class='cart_comment'>
+					<label>Name</label>
+					<a href="#" id="cart_commenthelp" class="cart_commenthelp">?</a> 
+					<input id='other_express_mtd' name='output[cart_comment]' type='text' value='' />
+				</span>
+              </div>
+		</fieldset>
+          <fieldset id="payment_methods">
+              <legend>Payment Page</legend>
+              <table id="payment_table">
+                <tr>
+                  <th id="help_paymtd">Payment Method</th>
+                  <th id="help_payname">Name</th>
+                  <th id="help_paysize">Logo Size</th>
+                  <th id="help_payadv">Logo Advantages</th>
+                  <th id="help_paysur">Surcharge</th>
+                  <th id="help_paybonus">Bonus Offer</th>
+                  <th id="help_paydesc">Description on Text</th> 
+                  <th></th>  
+                </tr>
+                 <tr class="payment_inputs clonedInput" id="payment_input" >
+                    <td><select name ="output[payment_option]" id="payment_option" required>
+                      <option value="" >Select One</option>
+                      <option value="Other">OTHER</option>
+                      <option value="Amazon Payments ">Amazon Payments </option>
+                      <option value="American Express">American Express</option> 
+                      <option value="BFS finance">BFS finance </option>
+                      <option value="Billpay">Billpay</option> 
+                      <option value="BillSAFE">BillSAFE</option> 
+                      <option value="boku ">boku </option>
+                      <option value="Cash‐Ticket ">Cash‐Ticket </option>
+                      <option value="ClickandBuy ">ClickandBuy </option>
+                      <option value="DHL Checkout ">DHL Checkout </option>
+                      <option value="Diners">Diners</option> 
+                      <option value="Facebook Credits">Facebook Credits</option> 
+                      <option value="giropay">giropay </option>
+                      <option value="Google Checkout">Google Checkout</option> 
+                      <option value="Lastschrift / Bankeinzug">Lastschrift / Bankeinzug</option> 
+                      <option value="iclear">iclear</option> 
+                      <option value="JCB">JCB</option>
+                      <option value="Klarna">Klarna </option>
+                      <option value="Maestro">Maestro</option>
+                      <option value="MasterCard">MasterCard</option> 
+                      <option value="mobuy">mobuy</option> 
+                      <option value="mopay">mopay</option> 
+                      <option value="mpass">mpass</option>
+                      <option value="Nachnahme">Nachnahme</option>
+                      <option value="paybox">paybox</option>
+                      <option value="paymorrow">paymorrow</option>
+                      <option value="PayPal">PayPal</option>
+                      <option value="paysafecard">paysafecard</option>
+                      <option value="RatePAY">RatePAY</option>
+                      <option value="Rechnung by sofort">Rechnung by sofort</option>
+                      <option value="Skrill (Moneybookers)">Skrill (Moneybookers)</option>
+                      <option value="sofortlastschrift">sofortlastschrift</option>
+                      <option value="sofortüberweisung">sofortüberweisung</option>
+                      <option value="tradoria checkout">tradoria checkout</option>
+                      <option value="V.me">V.me</option>
+                      <option value="Visa">Visa</option>
+                      <option value="Vorkasse / Überweisung">Vorkasse / Überweisung</option>
+                      <option value="Web.Cent">Web.Cent</option>
+                      <option value="Wirecard">Wirecard</option>
+                      <option value="Zong">Zong</option>
+                      <option value=""></option>
+                    </select></td>
+                    <td><input id='payment_name' class='payment_name' name='output[payment_name]' type='text' value='' /></td>
+                    <td>   <select name="output[logosize]" id="logosize">
+                          <option value="">Size</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                        </select></td>
+                           <td>    <span>
+                        <label><input type="checkbox" class="pageRequired" name="output[advantages]" value="Yes" > Present</label><br>
+                           </span></td>
+                           <td>         <span>
+                           <label>   <input type="checkbox" class="pageRequired" name="output[surcharge]" value="Yes" > Present</label><br>
+                           </span></td>
+                           <td>           <span>
+                          <label>  <input type="checkbox" class="pageRequired" name="output[bonus]" value="Yes" > Yes </label><br>
+                           </span></td>
+                           <td>             <span>
+                           <label>   <input type="checkbox" class="pageRequired" name="output[description]" value="Yes"> Present</label><br>
+                           </span></td>
+                                  <td>	<input type="button" name="bt_remove"  id="bt_remove" title="Remove row" class="button_rem" /></td>  
+                  </tr>
+              </table>
+              <div id="add_paymentmethod">
+                      <a href ="#" id ="btnAdd">Add 1 more </a>
+        
+              </div>   
+                
+			<div id="default_payment">
+				<label id="default_pay">Default payment method</label>
+				<select name ="output[default_option]" id="default_option">
+                  <option value="" >Select One</option>
+                  <option value="Other">OTHER</option>
+                  <option value="Amazon Payments ">Amazon Payments </option>
+                  <option value="American Express">American Express</option> 
+                  <option value="BFS finance">BFS finance </option>
+                  <option value="Billpay">Billpay</option> 
+                  <option value="BillSAFE">BillSAFE</option> 
+                  <option value="boku ">boku </option>
+                  <option value="Cash‐Ticket ">Cash‐Ticket </option>
+                  <option value="ClickandBuy ">ClickandBuy </option>
+                  <option value="DHL Checkout ">DHL Checkout </option>
+                  <option value="Diners">Diners</option> 
+                  <option value="Facebook Credits">Facebook Credits</option> 
+                  <option value="giropay">giropay </option>
+                  <option value="Google Checkout">Google Checkout</option> 
+                  <option value="Lastschrift / Bankeinzug">Lastschrift / Bankeinzug</option> 
+                  <option value="iclear">iclear</option> 
+                  <option value="JCB">JCB</option>
+                  <option value="Klarna">Klarna </option>
+                  <option value="Maestro">Maestro</option>
+                  <option value="MasterCard">MasterCard</option> 
+                  <option value="mobuy">mobuy</option> 
+                  <option value="mopay">mopay</option> 
+                  <option value="mpass">mpass</option>
+                  <option value="Nachnahme">Nachnahme</option>
+                  <option value="paybox">paybox</option>
+                  <option value="paymorrow">paymorrow</option>
+                  <option value="PayPal">PayPal</option>
+                  <option value="paysafecard">paysafecard</option>
+                  <option value="RatePAY">RatePAY</option>
+                  <option value="Rechnung by sofort">Rechnung by sofort</option>
+                  <option value="Skrill (Moneybookers)">Skrill (Moneybookers)</option>
+                  <option value="sofortlastschrift">sofortlastschrift</option>
+                  <option value="sofortüberweisung">sofortüberweisung</option>
+                  <option value="tradoria checkout">tradoria checkout</option>
+                  <option value="V.me">V.me</option>
+                  <option value="Visa">Visa</option>
+                  <option value="Vorkasse / Überweisung">Vorkasse / Überweisung</option>
+                  <option value="Web.Cent">Web.Cent</option>
+                  <option value="Wirecard">Wirecard</option>
+                  <option value="Zong">Zong</option>
+                  <option value=""></option>
+                </select>
+			</div>
+    		<div id='info'>
+				<label>Additional info</label>
+				<input id='add_info' name='output[additional_info]' type='text' value='' />
+			</div>
+          </fieldset> 
+
+		<fieldset id="paypal">
+	          <legend>PayPal Logo Type</legend>
+	          <div class="paylogo" id="paypal_logo">
+				<label>Which paypal logo is being used?</label>
+				<select name="output[paypal_logo]" >
+					<option value="">Select One</option>
+	                <option value="PayPal Logo">PayPal Logo</option>
+	                <option value="PayPal Logo with Slogan">PayPal Logo with Slogan</option>
+	                <option value="PayPal logo with payment method">PayPal logo with payment method</option>
+				</select>
+			  </div>
+			
+		</fieldset>
+
+     <section class = "form_submit">
+       <input type="submit" class="submitbutton" value = "Submit" tabindex="17" />
+     </section>
+	</div>
+	
+    </form> <!-- End of form-panel form-->
+  </div> <!-- End of container -->
+</div>
+
+</body>
+
+
+<script>
+
+$(document).ready(function() {
+  $('#paypal').hide();
+  $('#comment').hide();
+  $('#cart_comment').hide();
+  $('.button_rem').hide();
+
+  $('#btnAdd').click(function() {        
+    var num     = $('.clonedInput').length;
+    var newNum  = num + 1;
+    var $newElemTest    = $("#payment_input" ).clone().attr('id', 'payment_input' + newNum);
+    $newElemTest.find('#payment_option').attr('id', 'payment_option' + newNum).attr('name', 'output[payment_option' + newNum + ']');   
+    $newElemTest.find('#payment_name').attr('id', 'payment_name' + newNum).attr('name', 'output[payment_name' + newNum + ']');     
+    $newElemTest.find('#logosize').attr('id', 'logosize' + newNum).attr('name', 'output[logosize' + newNum + ']');   
+    $newElemTest.find('input[name="output[advantages]"]').attr('name', 'output[advantages' + newNum + ']');  
+    $newElemTest.find('input[name="output[surcharge]"]').attr('name', 'output[surcharge' + newNum + ']');  
+    $newElemTest.find('input[name="output[bonus]"]').attr('name', 'output[bonus' + newNum + ']');  
+    $newElemTest.find('input[name="output[description]"]').attr('name', 'output[description' + newNum + ']');  
+    $newElemTest.find('#bt_remove').attr('id', 'bt_remove' + newNum).attr('name', 'bt_remove' + newNum).val("");
+    $newElemTest.effect("highlight", {}, 2000).appendTo("#payment_table") ;
+    $("#add_paymentmethod").appendTo("#payment_table") ;
+    $('#bt_remove'+newNum).show();
+
+
+    $(function() {
+      $("table tr:nth-child(even)").addClass("striped");
+      $("table tr:nth-child(odd)").removeClass("striped");
+    });
+  });
+
+
+  $("#payment_option").change( function () { 
+    if($('#payment_option').val()=='PayPal'){
+      $('#paypal').effect("highlight", {}, 2000).fadeIn(1000);
+    }
+    else $('#paypal').hide();
+    if($('#payment_option').val()=='Other'){
+      $('#comment').effect("highlight", {}, 2000).fadeIn(1000);
+    }
+    else $('#comment').hide();
+  });
+
+
+  $("#ads").change( function () {
+    if($('#express_purchase').val()=='Other'){
+      $('#cart_comment').show();
+    }
+    else $('#cart_comment').hide();
+  });
+
+
+
+
+
+  $('#payment_methods').change(function(){
+    var num     = $('.clonedInput').length;
+    var a;
+    var b;	
+    $("#payment_option" + num).click( function () { 
+      if($("#payment_option" + num).val()== "PayPal"){
+        $('#paypal').show().effect("highlight", {}, 2000);
+        a=num;
+      }
+      else if(a==num){$('#paypal').hide();}
+      if($("#payment_option" + num).val()== "Other"){
+        $('#comment'+num).effect("highlight", {}, 2000).fadeIn(1000);
+        b=num;
+      }
+      else if(b==num){$('#comment'+num).hide();}
+    });
+  });
+
+    $(".button_rem").live("click",(function() {     
+      $(this).parent().parent().remove();
+      }));
+
+      $('a[rel*=facebox]').facebox();
+
+      $('#cart_commenthelp').qtip(
+        {
+          content: 'Write the other type if payment method mentioned',
+          style: { 
+            width: 200,
+            padding: 5,
+            background: '#B7D7EF',
+            color: 'black',
+            textAlign: 'center',
+            border: {
+              width: 7,
+              radius: 5,
+              color: '#B7D7EF'
+            },
+            tip: 'topLeft',
+            name: 'dark' 
+          }
+
+        });
+
+		$('#help_paymtd').qtip(
+          {
+            content: 'Choose the payment methods given according to its order',
+            style: { 
+              width: 200,
+              padding: 5,
+              background: '#B7D7EF',
+              color: 'black',
+              textAlign: 'center',
+              border: {
+                width: 7,
+                radius: 5,
+                color: '#B7D7EF'
+              },
+              tip: 'topLeft',
+              name: 'dark' 
+            }
+
+          });
+
+		$('#help_payname').qtip(
+          {
+            content: 'Fill if there is Other in a payment method',
+            style: { 
+              width: 200,
+              padding: 5,
+              background: '#B7D7EF',
+              color: 'black',
+              textAlign: 'center',
+              border: {
+                width: 7,
+                radius: 5,
+                color: '#B7D7EF'
+              },
+              tip: 'topLeft',
+              name: 'dark' 
+            }
+
+          });
+
+
+		$('#help_payadv').qtip(
+          {
+            content: 'Check if there is any advantage mention with the chosen payment method',
+            style: { 
+              width: 200,
+              padding: 5,
+              background: '#B7D7EF',
+              color: 'black',
+              textAlign: 'center',
+              border: {
+                width: 7,
+                radius: 5,
+                color: '#B7D7EF'
+              },
+              tip: 'topLeft',
+              name: 'dark' 
+            }
+
+          });
+
+        $('#help_paysize').qtip(
+          {
+            content: 'Rank the logo sizes,1 being the biggest and 10 smallest. If logos are of similar size give these logos the same rank.',
+            style: { 
+              width: 200,
+              padding: 5,
+              background: '#B7D7EF',
+              color: 'black',
+              textAlign: 'center',
+              border: {
+                width: 7,
+                radius: 5,
+                color: '#B7D7EF'
+              },
+              tip: 'topLeft',
+              name: 'dark' 
+            }
+
+          });
+
+		$('#help_paysur').qtip(
+          {
+            content: 'Check if there is a Surcharge (only surcharge that customers from Germany pay for deliveries to Germany) for certain payment methods',
+            style: { 
+              width: 200,
+              padding: 5,
+              background: '#B7D7EF',
+              color: 'black',
+              textAlign: 'center',
+              border: {
+                width: 7,
+                radius: 5,
+                color: '#B7D7EF'
+              },
+              tip: 'topLeft',
+              name: 'dark' 
+            }
+
+          });
+
+		$('#help_paybonus').qtip(
+          {
+            content: 'Check if any bonus offer is available for certain payment method',
+            style: { 
+              width: 200,
+              padding: 5,
+              background: '#B7D7EF',
+              color: 'black',
+              textAlign: 'center',
+              border: {
+                width: 7,
+                radius: 5,
+                color: '#B7D7EF'
+              },
+              tip: 'topLeft',
+              name: 'dark' 
+            }
+
+          });
+
+		$('#help_paydesc').qtip(
+          {
+            content: 'Check if there are any description given for certain payment methods',
+            style: { 
+              width: 200,
+              padding: 5,
+              background: '#B7D7EF',
+              color: 'black',
+              textAlign: 'center',
+              border: {
+                width: 7,
+                radius: 5,
+                color: '#B7D7EF'
+              },
+              tip: 'topLeft',
+              name: 'dark' 
+            }
+
+          });
+
+			$('#default_pay').qtip(
+	          {
+	            content: 'Mention if any payment method was select as previously',
+	            style: { 
+	              width: 200,
+	              padding: 5,
+	              background: '#B7D7EF',
+	              color: 'black',
+	              textAlign: 'center',
+	              border: {
+	                width: 7,
+	                radius: 5,
+	                color: '#B7D7EF'
+	              },
+	              tip: 'topLeft',
+	              name: 'dark' 
+	            }
+
+	          });
+
+
+        });
+
+
+</script>
+</html>

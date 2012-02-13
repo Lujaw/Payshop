@@ -1,0 +1,226 @@
+<!doctype>
+<html>
+<head>
+
+  <script type="text/javascript" src="http://bizcardarmy-run.s3.amazonaws.com/jquery-1.6.2.min.js"></script>
+
+
+
+</head>
+<style>
+
+body {
+  font-family:"Times New Roman",Georgia,Serif;
+  width:960px;
+  min-height:510px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+h4{
+  margin-bottom: 3px;
+  padding-bottom: 2px;
+  padding-top: 3px;
+}
+
+#prices{
+  width:89%;
+  margin-top: 15px;
+  border:1px solid #42647F;
+}
+legend {
+  color: #42647F;
+  font-size: 16px;
+  font-style: italic;
+  padding: 0.2em 0.5em;
+}
+label {
+  padding-left: 12px;
+  text-align: left;
+}
+
+
+.all_rounded_corners {
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -khtml-border-radius: 10px;
+  border-radius: 10px;
+}
+
+#wrapper {
+  width: 1025px;
+  margin: 0 auto;
+  padding-left: 0.5em;
+}
+
+input{
+  font-size: 16px;
+  height: 35px;
+  width: 75px;
+}
+
+#container{
+  padding-top: 15px;
+  font-family:"Times New Roman",Georgia,Serif;
+  width:960px;
+  min-height:510px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+
+.form_submit{
+  text-align: left;
+  margin-right: 5em;
+  margin-top: 13px;
+}
+input.submitbutton {
+  font-size:111%;
+  width:125px;
+  height:25px;
+  margin-right: 10px;
+}
+
+.form_submit input[type='submit']:hover {
+  opacity: 1;
+}
+.header-txt{
+  font-size:25px;
+}
+fieldset{
+  padding-top:1px;
+}
+
+#amazon{
+  padding:10px;
+  margin:10px;
+}
+
+#amazon input{
+  margin-left:15px;
+}
+
+#barnes{
+  padding:10px;
+  margin:10px;
+}
+
+#prices{
+  font-size:18px;
+}
+
+#workarea{
+  margin-left:10px;
+}
+
+#general_instruction{
+  margin-left:15px;
+  font-size:1.2em;
+}
+
+#input_book{
+  background: none repeat scroll 0 0 #E1E1E1;
+  padding-bottom: 18px;
+  padding-top: 0;
+  position: relative;
+  text-align: left;
+  width: 53%;
+  font-size:1.2em;
+}
+
+h3{
+  margin-bottom: 1px;
+  position: relative;
+  text-align: left;
+  font-family:"Times New Roman",Georgia,Serif;
+}
+</style>
+<body>
+  <div id = "container">
+    <div id = "instruction">
+      <h3 class="header-txt"> Compare the Prices </h3>
+      <div id = "general_instruction"  >
+        <h4>Instructions</h4>
+        <ol>
+          <li>Search the following book in Amazon and Barnes &amp; Novel.</li>
+          <li> Find the lowest available price in each of above sites </li>
+          <li> Enter price in appropriate fields in the form shown below .</li>
+        </ol>
+      </div>
+    </div>
+    <div id = "wrapper">
+      <form id = 'form-panel'>
+        <div id='workarea'>
+          <h3>Search the price of this book : </h3>
+          <div id='input_book' class ='textarea'>
+            {{input_book}}
+          </div>
+          <fieldset id="prices" class= "all_rounded_corners">
+            <legend>Online Prices</legend>
+
+            <div id ="amazon">
+              <label for = "amazon_price" >Amazon price ($)  </label>
+              <input id="amazon_price" name="output[amazon_price]" type="text" placeholder=" 0.0" pattern="\d{1,2}/\d{1,2}/\d{4}" required />
+            </div>
+            <div id ="barnes">
+              <label for = "barnes_price" id ="barneshelp" >Barnes & Novel ($)</label>
+              <input id="barnes_price" name="output[barnes_price]" type="text" placeholder=" 0.0" pattern="\d{1,2}/\d{1,2}/\d{4}" required/>
+            </div>
+          </fieldset>
+          <section class = "form_submit">
+            <input type="submit" id="formSubmit" class="submitbutton" value = "Submit"/>
+          </section>
+        </form> <!-- End of form-panel form-->
+      </div> <!-- End of container -->
+    </div>
+  </body>
+<script>
+$(document).ready(function() {    
+  $('#formSubmit').click(function() {
+    if( $("#amazon_price").val()=="" || $("#barnes_price").val()=="")
+    { 
+      alert ("You have forgot to fill the price.")
+      return false; 
+    }
+  });
+
+  /* Allow only numbers to be input */
+
+  $("#amazon_price").keydown(function(event) {
+    // Allow: backspace, delete, tab and escape
+    if ( event.keyCode == 46 || event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 27 || 
+      // Allow: Ctrl+A
+      (event.keyCode == 65 && event.ctrlKey === true) || 
+      // Allow: home, end, left, right
+      (event.keyCode >= 35 && event.keyCode <= 39)) {
+        // let it happen, don't do anything
+        return;
+      }
+      else {
+        // Ensure that it is a number and stop the keypress
+        if ((event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105 )) {
+          event.preventDefault(); 
+        }   
+      }
+    });
+
+    $("#barnes_price").keydown(function(event) {
+      // Allow: backspace, delete, tab and escape
+      if ( event.keyCode == 46 || event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 27 || 
+        // Allow: Ctrl+A
+        (event.keyCode == 65 && event.ctrlKey === true) || 
+        // Allow: home, end, left, right
+        (event.keyCode >= 35 && event.keyCode <= 39)) {
+          // let it happen, don't do anything
+          return;
+        }
+        else {
+          // Ensure that it is a number and stop the keypress
+          if ((event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105 )) {
+            event.preventDefault(); 
+          }   
+        }
+      });
+});
+</script>
+</html>

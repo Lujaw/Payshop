@@ -1,0 +1,401 @@
+<html>
+<head>
+<title>Fluid form example</title>
+<meta name="author" content="Jim Sontag" />
+<meta name="description" content="sample fluid form using
+CSS" />
+<style type="text/css">
+<!--
+BODY { font-family: sans-serif; font-size: 10pt }
+FIELDSET { padding: 4px; margin: 8px; }
+LABEL { float: left; clear: none; margin-right: 8px; }
+LABEL { font-size: 80%; font-style: italic; }
+LEGEND { font-weight: 700; font-style: italic }
+
+INPUT[type="text"] { font-size: 11pt }
+
+..lside { float: left; clear: left; width: 50%; }
+..rside { float: left; clear: right; width: 50%; }
+
+..title1 { font-size:150%; font-style:italic; padding-right:8px }
+..title2 { font-size:110%; font-style:italic; padding-right:8px }
+..tstmp { font-style: italic; line-height: 1.5em;
+padding-right:8px }
+
+..glabel { margin-left: 3ex }
+..glabel LABEL { font-size: 90%; font-style: italic;
+text-indent: -3ex; }
+..glabel { white-space: normal }
+
+/* stupid microsoft fixes */
+* html .glabel { margin-left: 0 }
+* html .glabel LABEL { text-indent: 0 }
+
+#dbtn { display: none }
+..sbtn { float: right }
+
+#ctrl { display: none }
+#newPrice { clear: both; padding-top: 1ex; }
+-->
+</style>
+</head>
+<body>
+
+<form class="dj" id="booking" action="event.php"
+method="post" onsubmit="return validate()">
+<fieldset><legend>Event Information</legend>
+
+<div <!-- needed for IE -->
+<div class="lside">
+<span class="title1">Dave Black</span><br / <span
+class="title2">Tuesday, December 19, 2006 <br />8:00pm to
+1:00am (5:00 hours)</span><br />
+</div<!-- end of lside div -->
+<div class="rside" style="text-align:right">
+<span class="title1">Our price : $700<br /></span>
+<span class="tstmp">Last updated: Sat, Feb 24 -
+3:13pm</span><br />
+
+<a
+href="/calgarydj/event.php?page=0d94c81bc43bb777200ee29ce4f5ace9">R efresh</a>
+</div<!-- end of rside div -->
+<div id="newPrice"></div><br />
+</div>
+<fieldset id="ctrl" style="float:left;clear:left">
+<legend>Control</legend>
+<label>
+type<br />
+<input readonly type="hidden" name="type" size="6"
+value="booking" />
+</label>
+
+<label>
+idx<br />
+<input readonly type="hidden" name="idx" size="1"
+maxlength="4" value="-1" />
+</label>
+
+<label>
+pkey<br />
+<input readonly type="hidden" name="pkey" size="2"
+maxlength="4" value="1" />
+</label></fieldset>
+
+<div id="jim">
+<div class="lside" style="clear:both">
+<fieldset><legend>Contact information</legend>
+
+<div style="float:left;clear:none">
+<label>Name<br />
+<input type="text" name="name" size="32" maxlength="32"
+value="Dave Black" />
+
+</label>
+
+<label style="clear:left">e-mail<br />
+<input type="text" name="email" size="32" maxlength="40"
+value="david.emerson.black@www.calgarydj.ca" />
+</label>
+</div>
+
+<div style="float:left;clear:none">
+<label>Phone (primary)<br />
+
+<input type="text" name="phone1" size="13" maxlength="13"
+value="403 123-4567" />
+</label>
+
+<label style="clear:left">Phone&nbsp;(alternate)<br />
+<input type="text" name="phone2" size="13" maxlength="13"
+value="403 765-4321" />
+</label>
+</div>
+
+<label>
+Address<br />
+
+<input type="text" name="addr1" size="32"
+maxlength="32" value="123 Mockingbird Lane NW" /><br />
+<input type="text" name="addr2" size="32"
+maxlength="32" value="" />
+</label>
+
+<div style="float:none;clear:both">
+<label style="clear:both">
+City<br />
+<input type="text" name="city" size="15" maxlength="20"
+value="Calgary" />
+</label>
+
+
+<label>
+Prov<br />
+<input type="text" name="prov" size="4" maxlength="20"
+value="AB" />
+</label>
+
+<label>
+Postal Code<br />
+<input type="text" name="postalCode" size="9"
+maxlength="9" value="T2M 0X5" />
+</label>&nbsp;
+
+</div>
+</fieldset>
+
+<fieldset>
+<legend>Time &amp; Place</legend>
+<label>Venue name<br />
+<input type="text" name="venue" size="30" maxlength="32"
+value="" />
+</label>
+
+<label>
+starting<br />
+<select name="stime" onchange="pcalc()" <option
+value="12:30">12:30</option>
+<option value="13:00">1:00</option>
+<option value="13:30">1:30</option>
+<option value="14:00">2:00</option>
+
+<option value="14:30">2:30</option>
+<option value="15:00">3:00</option>
+<option value="15:30">3:30</option>
+<option value="16:00">4:00</option>
+<option value="16:30">4:30</option>
+<option value="17:00">5:00</option>
+
+<option value="17:30">5:30</option>
+<option value="18:00">6:00</option>
+<option value="18:30">6:30</option>
+<option value="19:00">7:00</option>
+<option value="19:30">7:30</option>
+<option selected value="20:00">8:00</option>
+
+<option value="20:30">8:30</option>
+<option value="21:00">9:00</option>
+<option value="21:30">9:30</option>
+<option value="22:00">10:00</option>
+<option value="22:30">10:30</option>
+<option value="23:00">11:00</option>
+
+<option value="23:30">11:30</option>
+<option value="00:00">12:00am</option>
+<option value="00:30">12:30am</option>
+<option value="01:00">1:00am</option>
+<option value="01:30">1:30am</option>
+<option value="02:00">2:00am</option>
+
+</select>
+<!-- <input type="text" name="stime" size="6"
+value="20:00"/-->
+
+</label>
+
+<label>
+ending<br />
+<select name="etime" onchange="pcalc()" <option
+value="12:30">12:30</option>
+<option value="13:00">1:00</option>
+
+<option value="13:30">1:30</option>
+<option value="14:00">2:00</option>
+<option value="14:30">2:30</option>
+<option value="15:00">3:00</option>
+<option value="15:30">3:30</option>
+<option value="16:00">4:00</option>
+
+<option value="16:30">4:30</option>
+<option value="17:00">5:00</option>
+<option value="17:30">5:30</option>
+<option value="18:00">6:00</option>
+<option value="18:30">6:30</option>
+<option value="19:00">7:00</option>
+
+<option value="19:30">7:30</option>
+<option value="20:00">8:00</option>
+<option value="20:30">8:30</option>
+<option value="21:00">9:00</option>
+<option value="21:30">9:30</option>
+<option value="22:00">10:00</option>
+
+<option value="22:30">10:30</option>
+<option value="23:00">11:00</option>
+<option value="23:30">11:30</option>
+<option value="00:00">12:00am</option>
+<option value="00:30">12:30am</option>
+<option selected value="01:00">1:00am</option>
+
+<option value="01:30">1:30am</option>
+<option value="02:00">2:00am</option>
+</select>
+<!-- <input type="text" name="etime" size="6"
+value="01:00"/-->
+</label>
+
+<label>Address<br />
+<input type="text" name="street" size="30" maxlength="32"
+value="123 mockingbird lane" />
+</label>
+
+
+<div class="glabel" style="clear:left">
+<label style="margin-top:1ex">
+<input type="checkbox" name="inTown" value="true"
+onclick="pcalc()" />
+Check here if the venue is outside of the city.
+</label>
+
+<label style="margin-top:6px;float:right">
+If yes, distance from city limits?
+<select name="travel" onchange="pcalc()">
+<option value="20">0-20 km</option>
+
+<option value="40">20-40km</option>
+<option value="60">40-60km</option>
+<option value="80">60-80km</option>
+<option value="100">80-100km</option>
+<option selected value="200">Over 100km</option>
+</select>
+
+</label>
+
+<div style="clear:both;padding-top:6px">
+<label>
+<input type="checkbox" name="earlySetup"
+value="true" onclick="pcalc()" />
+Do you need us to set up earlier in the day?
+(setup normally happens 1 hour before your requested
+start time)
+</label>
+
+<label style="float:right">
+If yes, early setup time
+<select name="earlySetupTime" onchange="pcalc()">
+<!-- <input name="earlySetupTime" type="text"
+value="20:00" size="6" maxlength="6" /-- <option
+value="12:30">12:30</option>
+
+<option value="13:00">1:00</option>
+<option value="13:30">1:30</option>
+<option value="14:00">2:00</option>
+<option value="14:30">2:30</option>
+<option value="15:00">3:00</option>
+<option value="15:30">3:30</option>
+
+<option value="16:00">4:00</option>
+<option value="16:30">4:30</option>
+<option value="17:00">5:00</option>
+<option value="17:30">5:30</option>
+<option value="18:00">6:00</option>
+<option value="18:30">6:30</option>
+
+<option value="19:00">7:00</option>
+<option value="19:30">7:30</option>
+<option selected value="20:00">8:00</option>
+<option value="20:30">8:30</option>
+<option value="21:00">9:00</option>
+<option value="21:30">9:30</option>
+
+<option value="22:00">10:00</option>
+<option value="22:30">10:30</option>
+<option value="23:00">11:00</option>
+<option value="23:30">11:30</option>
+<option value="00:00">12:00am</option>
+<option value="00:30">12:30am</option>
+
+<option value="01:00">1:00am</option>
+<option value="01:30">1:30am</option>
+<option value="02:00">2:00am</option>
+</select>
+
+</label&nbsp;
+</div>
+
+</div>
+</fieldset>
+
+</div<!-- end of lside div -->
+
+<div class="rside">
+<fieldset>
+<legend>Dinner Music</legend>
+<div class="glabel">
+<label>
+<input type="radio" name="dinnerMusic" value="recorded"
+onclick="pcalc()" />Recorded music ($50/hr)
+</label>
+
+<br style="clear:both" />
+
+<label>
+<input checked type="radio" name="dinnerMusic"
+value="guitar" onclick="pcalc()" />Live classical guitar
+($150/hr)
+</label>
+<br style="clear:both" />
+
+<label>
+<input type="radio" name="dinnerMusic" value="piano"
+onclick="pcalc()" />Live classical piano ($150/hr)
+</label>
+<br style="clear:both" />
+
+<label>
+
+<input type="radio" name="dinnerMusic" value="none"
+onclick="pcalc()" />No dinner music
+</label>
+</div>
+</fieldset>
+
+<fieldset>
+<legend>Sound Enhancement </legend>
+Please select any of the following extras you are interested in
+<div class="glabel">
+<label>
+<input checked type="checkbox" name="wireless"
+value="true" onclick="pcalc()" />Wireless microphone ($50)
+</label>
+
+<br style="clear:both" />
+
+<label>
+<input checked type="checkbox" name="lights"
+value="true" onclick="pcalc()" />Upgraded lighting system ($100)
+</label>
+<br style="clear:both" />
+
+<label>
+<input type="checkbox" name="bigSound" value="true"
+onclick="pcalc()" />Upgraded sound system
+-recommended for groups of <b>200&nbsp;+</b($100)
+</label>
+
+<br style="clear:both" />
+
+<label>
+<input type="checkbox" name="senior" value="true"
+onclick="pcalc()" />
+Premium DJ -our most expereinced DJs ($50)
+</label>
+</div>
+</fieldset>
+
+<fieldset>
+<legend>Notepad</legend>
+
+<textarea rows="4" cols="28" name="notepad">hey
+nee ner
+nee ner ner
+</textarea>
+</fieldset>
+
+</div <!-- end of rside div -->
+</div>
+<br style="clear:both" />
+<input type="submit" id="dbtn" />
+</fieldset>
+</form>
+</body>
+</html>

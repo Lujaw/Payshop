@@ -1,0 +1,58 @@
+<mockup version="1.0" skin="sketch" measuredW="835" measuredH="634" mockupW="800" mockupH="600">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="35" y="34" w="800" h="600" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>A%20Web%20Page%0Ahttp%3A//</text>
+      </controlProperties>
+    </control>
+    <control controlID="4" controlTypeID="com.balsamiq.mockups::Label" x="692" y="226" w="-1" h="-1" measuredW="100" measuredH="21" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Hide%20Instructions</text>
+        <underline>true</underline>
+      </controlProperties>
+    </control>
+    <control controlID="5" controlTypeID="com.balsamiq.mockups::TextArea" x="50" y="127" w="770" h="99" measuredW="200" measuredH="140" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>1%29%20Click%20the%20link%20given%20below%20and%20open%20in%20new%20tab/window%0A2%29%20Identify%20the%20web%20address%20%28URL%29%20of%20the%20online%20shop%20%28its%20usually%20just%20below%20the%20search%20bar%20eg.alphamusic.de%29%20%0A3%29%20Check%20whether%20the%20URL%20you%20found%20is%20valid%20%20%0A4%29%20If%20its%20valid%20%2C%20paste%20the%20URL%20in%20the%20given%20field%20%0A5%29%20If%20the%20URL%20is%20not%20valid%20or%20can%27t%20find%20it%20%2C%20just%20type%20%22Invalid%22%20into%20the%20field%20below</text>
+      </controlProperties>
+    </control>
+    <control controlID="6" controlTypeID="com.balsamiq.mockups::Label" x="125" y="292" w="134" h="28" measuredW="109" measuredH="24" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>16</size>
+        <text>Open%20this%20URL</text>
+      </controlProperties>
+    </control>
+    <control controlID="7" controlTypeID="com.balsamiq.mockups::TextInput" x="252" y="294" w="217" h="-1" measuredW="186" measuredH="27" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>www.idealo.de/asdlkf/123.html</text>
+      </controlProperties>
+    </control>
+    <control controlID="8" controlTypeID="com.balsamiq.mockups::Label" x="63" y="384" w="196" h="21" measuredW="172" measuredH="22" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>14</size>
+        <text>Extracted%20Online%20Shop%20URL</text>
+      </controlProperties>
+    </control>
+    <control controlID="9" controlTypeID="com.balsamiq.mockups::TextInput" x="252" y="384" w="217" h="-1" measuredW="79" measuredH="27" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="10" controlTypeID="com.balsamiq.mockups::Label" x="90" y="339" w="151" h="28" measuredW="151" measuredH="22" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>14</size>
+        <text>Is%20%20Extracted%20URL%20valid%20</text>
+      </controlProperties>
+    </control>
+    <control controlID="11" controlTypeID="com.balsamiq.mockups::CheckBox" x="250" y="341" w="70" h="25" measuredW="53" measuredH="22" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Yes%20</text>
+      </controlProperties>
+    </control>
+    <control controlID="12" controlTypeID="com.balsamiq.mockups::CheckBox" x="400" y="340" w="70" h="25" measuredW="42" measuredH="22" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>No</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>

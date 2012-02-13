@@ -1,0 +1,34 @@
+A) If there are logos of payment methods (eg MasterCard, Visa, PayPal, etc.) on the home page, specify in what order (from left to right, then top
+down) the logos of the payment methods displayed on the home page? If a payment method is not listed in the drop of a respective position,
+Please select "OTHER" and enter in addition to other payment method which is (for example, "Commerz Financial").
+B) Please provide any logo in the list according to the logo size is also a rank (1 = greatest logo, 10 = smallest logo). If logos are similar in size (and not particularly
+are highlighted in contrast to other logo) please forgive them the same rank for these logos!
+C) In the column logo benefits, please indicate whether the logos next to the brand image even more benefits (such as "safe" or "TÜV", etc.) and communicate more text.
+
+
+3) If a PayPal logo on the payment methods page, which is the logo?
+
+4) Are there banners of payment methods on the shop page, and if so which ones?
+
+5) If there are banner ads, where are they located? Please describe precisely the possible location of the banner ad (eg "in the upper left corner" or "far right below the title and link bar"
+
+6) Now insert any product (possible large 20, - €) in your shopping cart and continue to navigate shopping cart page.
+
+Unless there is Express Checkout button on the shopping cart page (see examples), enter the order (from left to right, then from top to bottom) at the Express Checkout button. When an Express Checkout payment method is not relevant to the list of these as a drop location, please choose "OTHER" and enter an addition to what other method of payment is involved.
+
+Add to Cart
+Continue shopping
+Add to Cart
+Go to checkout
+Express Checkout button examples:
+Express Checkout payment method
+Price
+Sum
+Amount
+remove
+
+7) Now go to the Cashier and enter appropriate data in order to get to the choice of payment methods.
+Note: In some shops you must be an address form ausfüllen to go to the payment selection. It is not required in the purchase for completing this research.
+We found no cart-position with the order 373932nd
+tool
+conrad of payment

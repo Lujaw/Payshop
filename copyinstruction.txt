@@ -1,0 +1,14 @@
+View the given URL and fill all fill the form.
+If there are logos of the payment method, identify them according to the order in which they are present (from left to right, then from top to bottom). You even need to rank the logo like 1 for biggest and 10 for smallest. If the logos are of similar size then give them the same rank.
+Also detect if the logo contain any additional content beside the pure brand(like faster, safer or any additional text)
+If the PayPal logo is present then its type is also needed in one of the field
+If any additional banner advertising payment methid present in the given URL, mention them along with its position.
+
+
+
+fill all the fields according to the information you collect from the given URL
+In the given URL, put any product(ideally costing above €20) in your shopping cart and navigate to shopping cart page.
+In shopping cart page see if there are Express-Purchase/Buy button present. Fill them up in a form according to the order in which they were displayed.For the rank field, rank the logo according to its size 1 being smallest to 10 being largest. If logos are of similar size give them same rank.
+Then go through checkout process to get to the payment page, so that you can view the different payment method available and also see if any default payment method available. the payment methods are to be filled according to the order in which they are mentioned. If PayPal logo is present we also need to mention which PayPal logo is being used. 
+
+

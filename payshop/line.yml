@@ -1,0 +1,47 @@
+title: online shop url extraction
+public: false
+description: A line for online shop url extraction
+department: Digitization
+
+input_formats:
+  - name: Online Shop Profil
+    required: true
+    valid_type: url
+
+
+stations:
+  # Sample Station #1: Tournament
+  - station:
+      station_index: 1
+      station_type: work
+      # Create the task form for this station
+      task_form:
+        form_title: Online Shop URL aus Shop Profil von Preisvergleichsseite extrahieren
+        instruction: a) Bitte öffnen Sie die URL aus dem Feld “Online Shop Profil”.<br />                                                                                                                  b) Bitte identifizieren Sie die Shop URL auf der Seite (meist steht diese schon vor den Daten "Shopdaten und Adresse" und öffnen diese in Ihrem Webbrowser.<br />                             c) Wenn es sich um eine gültige Adresse handelt kopieren Sie bitte die Webadresse der Startseite des Online Shops aus Ihrem Browser in das Feld "Online Shop URL". <br />                      Wenn es sich um eine ungültige Adresse handelt bzw. die Adresse nicht per Browser abrufbar ist tragen Sie bitte "nicht abrufbar" in das Feld "Online Shop URL" unten ein.
+        form_fields:
+          - label: Online Shop URL
+            field_type: short_answer
+
+      worker:
+        worker_type: human
+        num_workers: 1
+        reward: 1
+      gold_standards:
+        - name: url_extraction_test
+          assignment_duration: 3600
+          input:
+            Online Shop Profil:
+              http://www.idealo.de/preisvergleich/Shop/6160.html
+          expected_output:
+            online-shop-url:
+              value: "http://www.conrad.de" # the expected answer that you need
+      badges:
+        - name: url extraction
+          description: A badge that that make you url extractor
+          max_badges: 10000
+          gold_standards: 1
+          test_attributes:
+            type: default
+            retries: 5
+            pass_percentage: 100
+            check_manually: true

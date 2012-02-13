@@ -1,0 +1,326 @@
+<!doctype>
+<html>
+<head>
+
+  <script type="text/javascript" src="http://bizcardarmy-run.s3.amazonaws.com/jquery-1.6.2.min.js"></script>
+  <script type="text/javascript" src="http://bizcardarmy-run.s3.amazonaws.com/jquery-ui-1.8.16.custom.min.js"></script>
+  <script type="text/javascript" src="http://bizcardarmy-run.s3.amazonaws.com/jquery.easing.1.3.js"></script>
+</head>
+<style>
+
+body {
+  /*background:cornflowerBlue;*/
+  font-family: Arial, Verdana, sans-serif;
+  width:960px;
+  height:510px;
+  margin-left:auto;
+  margin-right:auto;
+  border:2px solid black;
+  padding:35px 10px 10px 28px;
+  padding-left: 28px;
+}
+
+.part{
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+#input_URL{
+	background-color: #E1E1E1;
+    margin-left: 19em;
+    margin-top: -25px;
+    position: absolute;
+    text-align: center;
+    width: 700px;
+}
+#extracted_URL{
+	margin-left: 19em;
+    margin-top: -25px;
+    position: absolute;
+    text-align: center;
+    width: 38%;
+}
+fieldset {
+	border:1px solid #dedede; /* Default fieldset borders vary cross browser, so make them the same */
+}
+fieldset div {
+	overflow:hidden; /* Contain the floating elements */
+	display:inline-block; /* Give layout in ie to contain float */
+}
+fieldset div {display:block;} /* Reset element back to block leaving layout in ie */
+label {
+	float:left; /* Take out of flow so the input starts at the same height */
+	width:5em; /* Set a width so the inputs line up */
+}
+
+.radio {
+	position:relative; /* Position so children are relative to this container */
+	border:0; /* Remove the border */
+}
+.radio span {
+	position: absolute;
+	    top: -22px;
+	    width: 15em;
+}
+.radio ul {
+	margin-left: 15em;
+	    margin-top: -3px;
+	    position: absolute;
+	list-style:none; /* Dont want bullets */
+}
+.radio li {
+	position:relative; /* Fix a bug in IE zoom functionality */
+	display:inline; /* Display the inputs in a line */
+	white-space:nowrap; /* We dont want a label to wrap between the input and label */
+}
+.radio label, .radio input {
+	width:auto; /* Reset the width on the label from the 5em, set earlier */
+	float:none; /* Reset the float from left on the label, set earlier */
+	vertical-align:middle; /* Align the radio buttons with the inputs */
+}
+#valid{
+	text-align:left;
+}
+#input_text{
+  width: 910px;
+}
+
+#instruction {
+  border-bottom: 2px solid #E1E1E1;
+  position: relative;
+  width: 915px;
+  padding-left: 17px;
+}
+#input_passage_text{
+  height: 68px;
+  width: 916px;
+}
+
+h3{
+  padding-top:2px;
+  margin-bottom: 3px;
+}
+#output{
+   margin: 5px 5px 5px 2px;
+  height:auto;
+  float: left;
+  width: 930px;
+}
+
+#req_text {
+  float:left;
+  height: 59px;
+  width: 420px;
+}
+
+#selected_text textarea,#req_text textarea{
+  width: 420px;
+  resize: none;
+}
+
+#selected_text {
+    background-color: #E1E1E1;
+    border-color: Transparent;
+    border-style: none;
+    color: black;
+    float: left;
+    font-size: 16px;
+    min-height: 75px;
+    width: 420px;
+}
+
+.hidden {
+  display: none;
+}
+
+.not_visible {
+  visibility: hidden;
+}
+
+
+.header-txt {
+    color: #344152;
+    font-size: 28px;
+    font-style: italic;
+    margin: 0 auto;
+    padding-top: 1px;
+    width: 920px;
+}
+
+#instruction_content {
+  /*  padding-top: 10px;*/
+  display: none;
+}
+
+#click_for_instruction {
+  bottom: -27px;
+  margin-right: 35px;
+  position: absolute;
+  right: 25px;
+  text-align: right;
+}
+
+
+#show_instruction {
+  border: 2px solid #E1E1E1;
+  padding: 6px;
+  border-top: none;
+  cursor: pointer;
+  background-color: #E1E1E1;
+}
+#show_instruction:hover {
+  color: black;
+}
+
+.all_rounded_corners {
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -khtml-border-radius: 10px;
+  border-radius: 10px;
+}
+.bottom_rounded_corners {
+  -moz-border-radius-bottomright: 10px;
+  -moz-border-radius-bottomleft: 10px;
+  -webkit-border-bottom-right-radius: 10px;
+  -webkit-border-bottom-left-radius: 10px;
+}
+.right_rounded_corners {
+  -moz-border-radius-topright: 10px;
+  -moz-border-radius-bottomright: 10px;
+  -webkit-border-top-right-radius: 10px;
+  -webkit-border-bottom-right-radius: 10px;
+}
+
+#form-panel{
+  width:100%;
+  float: left;
+}
+#input_passage{
+  width:100%;
+  float:left;
+}
+#output_passage{
+  clear: both;
+  float: left;
+}
+
+.address_instruction_tips {
+  font-size: 10px;
+  font-style: italic;
+  color: #777777;
+  margin-left: 7px;
+}
+a {
+  color: #42647F;
+}
+
+a:hover {
+  color: #4b96bd;
+}
+
+#wrapper {
+  width: 1025px;
+  padding-top: 2em;
+  margin: 0 auto;
+}
+
+input{
+    font-size: 16px;
+}
+
+#container{
+  float:left;
+  padding-top: 15px;
+  background:white;
+  padding-bottom: 2px;
+  width:960px;
+}
+
+.form_submit{
+ 	float: left;
+	margin-left: 19em;
+	margin-top: 13px;;
+}
+
+.form_submit input[type='submit']:hover {
+  opacity: 1;
+}
+
+
+
+</style>
+
+<div id = "container">
+  <div id = "instruction">
+    <h3 class="header-txt"> Extract Online Shop URL  </h3>
+
+    <div id = "instruction_content" class = "hidden">
+      <div id = "instruction_text">
+        <div id = "general_instruction">
+          <h3>Instructions</h3>
+          <ol>
+           <li > Click the link given below and open in new tab/window</li>
+           <li > Identify the web address (URL) of the online shop (its usually just below the search bar eg.alphamusic.de) </li>
+           <li > Check whether the URL you found is valid  </li>
+           <li > If its valid , paste the URL in the given field </li>
+           <li> If the URL is not valid or can't find it , just type "Invalid" into the field below </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <div id = "click_for_instruction">
+      <a href = "#" id = "show_instruction" class="bottom_rounded_corners">View Instructions</a>
+    </div>
+
+  </div>
+  <div id = "wrapper">
+    <form id = 'form-panel'>
+
+      <div id='input_passage' class='part'>
+        <h3>Open this URL : </h3>
+        <div id='input_URL' class ='textarea'>
+          {{input_URL}}
+        </div>
+              <legend>
+               <h3> Extracted Online Shop URL  : </h3>
+              </legend>           
+                      <input id="extracted_URL" name="output[extracted_url]" type="text" class="field text addr part" value="" required />
+                    </div>
+             
+         
+         
+          <section class = "form_submit">
+            <input type="submit" value = "Submit" tabindex="17" />
+          </section>
+
+
+	</div>
+    </form> <!-- End of form-panel form-->
+  </div> <!-- End of container -->
+</div>
+
+
+
+<script>
+
+  $('#show_instruction').toggle(function() {
+    // $('#show_more').toggle();
+    $('#instruction_content').animate({
+      height: 'toggle'
+    }, 1000,'easeOutBounce', function(){
+      $('#show_instruction').html("Hide Instructions")
+    });
+  }, function(){
+    $('#instruction_content').animate({
+      height: 'toggle'
+    }, 1000, 'easeOutBounce', function(){
+      // $('#show_more').toggle();
+      // $('#overlay').toggle();
+      $('#show_instruction').html("View Instructions");
+    });
+  });
+
+  
+</script>
+
+

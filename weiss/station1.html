@@ -1,0 +1,156 @@
+<html>
+<head><script type="text/javascript">var NREUMQ=NREUMQ||[];NREUMQ.push(["mark","firstbyte",new Date().getTime()]);</script>
+  <link href="form.css" media="screen" rel="stylesheet" type="text/css" />
+<script src="form.js" type="text/javascript"></script>
+
+<script>
+/*<![CDATA[*/
+$(document).ready(function(){
+  // highlight input on error
+  var errors = "[]"
+  errors=errors.replace(/&quot;/gi,'\'');
+  errors=errors.replace(/\[/gi,'');
+  errors=errors.replace(/\]/gi,'');
+  errors=errors.split(',');
+  $.each(errors, function(index, value) {
+    if(errors[0] != ""){
+      error_div = value.match(/'([\w+\W+]*)'/)[1];
+      ele = check_input_name(error_div);
+      ele.addClass("error-highlight")
+    }
+  });
+
+  function check_input_name(error_div) {
+    var ele;
+    // a = $('[name="output["'+error_div+'"]"]').attr('tagName').toLowerCase() || ;
+
+    if($("input[name=output["+error_div+"]]").length > 0) {
+      ele = $("input[name=output["+error_div+"]]");
+    } else if($("textarea[name=output["+error_div+"]]").length > 0) {
+      ele =  $("textarea[name=output["+error_div+"]]");
+    } else if($("select[name=output["+error_div+"]]").length > 0) {
+      ele = $("select[name=output["+error_div+"]]");
+    } else if($("input[name='output["+error_div+"][]']").length > 0) {
+      ele = $("input[name='output["+error_div+"][]']");
+    }  else if($("textarea[name='output["+error_div+"][]']").length > 0) {
+      ele = $("textarea[name='output["+error_div+"][]']");
+    } else if($("select[name='output["+error_div+"][]']").length > 0) {
+      ele = $("input[name='output["+error_div+"][]']");
+    }
+    return ele;
+  }
+
+  // unhighlight on focus
+  $("input, textarea").focus(function(){
+    $(this).removeClass("error-highlight")
+  });
+
+  $("select").focus(function(){
+    $(this).removeClass("error-highlight")
+  })
+
+  // manually set cookie in safari
+  set_manual_cookie("Firefox");
+});
+
+</script>
+
+
+  <style>
+  body { font-family: Arial }
+  .cf-taskform-wrapper .input-info { padding-bottom: 0px;}
+  .cf-taskform .label { float: left; }
+  .cf-taskform input, .cf-taskform select { margin-left: 5px; }
+  span.task-form-input { margin-left: 5px; }
+  #back_to_preview { margin-left: 34px; }
+  </style>
+  <script>
+  $(document).ready(function(){
+    $("li").live('mouseover mouseout', function(event) {});
+  });
+  </script>
+
+</head>
+<body class="blue">
+  
+  <div class="cf-taskform-wrapper">
+    <div class="header">
+      <a class="cf-logo" title="Cloudfactory" href="http://cloudfactory.com">Cloud Factory</a>
+    </div>
+    <div class="content-format">
+  <div class="form-title">
+    Extract Online Shop URL from Profile of an Online Shop on Price Comparison Website
+  </div>
+
+  <div class="form-instruction" >
+    1) Click the link given below and open in new tab/window <br/>
+    2) The opened site may be in foreign language , use www.translate.google.com if necessary <br/>
+    3) Identify the web address (URL) of the online shop (its usually just below the search bar ) <br/>
+    4) Check whether the URL is valid  <br/>
+    5) If its valid , copy and paste the URL in the given field <br/>
+    6) If the URL is not valid or can't find it , just type "Invalid" into the field below <br/>
+  </div>
+  <div class="show-hide">
+    <a id='hide_instruction' href="javascript:;" class="disable">Hide instruction</a>
+  </div>
+</div>
+<script>
+  $('#hide_instruction').click(function(){
+    $('.form-instruction').toggle();
+    $(this).text($(this).text() == 'Hide instruction' ? 'Show Instruction' : 'Hide instruction');
+  });
+</script>
+  <form id ="weiss" name="weiss" method="post">
+    <div class="formFields">
+      <ul class="input-info">
+        <li>
+          <label class="label">Online Shop Profile:</label>
+          <div class="left">
+            <span class="task-form-input">
+              &lt;Online Shop Profile&gt;
+            </span>
+
+          </div>
+        </li>
+      </ul>
+    </div>
+
+<div class="formFields">
+  
+<div class="cf-taskform">
+    <li class="short_answer" id="4f26af53cb02241f380000d9">
+      <div class="left-wrap">
+        <label class="label trace_link left" for="4f26af53cb02241f380000d9">
+
+          Extracted Online Shop URL
+            <span id='asterix' style='color:red;'>*</span>
+          
+        </label>
+        <div class="left">
+            <div class='wrapperCheckRadio'><div><input class="inputBox" id="4f26af53cb02241f380000d9" name="output[extracted-online-shop-url]" type="text" /></div></div><div class="edit_delete" style="display:none"><a href="/stations/4f26ad9acb02241f290000d5/form/form_fields/4f26af53cb02241f380000d9/edit" class="edit_field" data-remote="true" id="4f26af53cb02241f380000d9">edit</a><a href="/stations/4f26ad9acb02241f290000d5/form/form_fields/4f26af53cb02241f380000d9" class="delete_field" data-method="delete" data-remote="true" id="4f26af53cb02241f380000d9" rel="nofollow">delete</a></div>
+        </div>
+      </div>
+        <div class="note-help" style="display:none">
+
+          <label>&nbsp;</label>
+          <span class="hint">Valid URL of the online shop that can be found on the shop profile of the price comparison site</span>
+        </div>
+     
+</li>    <!-- </li> -->
+</div>
+ <input id="saveform" name ="saveform" value="submit" type="submit">
+  </form>
+
+</div>
+</div>
+<script type="text/javascript">if (!NREUMQ.f) { NREUMQ.f=function() {
+NREUMQ.push(["load",new Date().getTime()]);
+var e=document.createElement("script");
+e.type="text/javascript";e.async=true;e.src="https://d1ros97qkrwjf5.cloudfront.net/30/eum/rum.js";
+document.body.appendChild(e);
+if(NREUMQ.a)NREUMQ.a();
+};
+NREUMQ.a=window.onload;window.onload=NREUMQ.f;
+};
+NREUMQ.push(["nrfj","beacon-1.newrelic.com","40c606b8be",159955,"cw5XFUALDQ9TRh5UDUIMSk5CFgQVX1FGbRZRElI+VAsTDg==",0,105,new Date().getTime(),"","","","",""])</script></body>
+</html>

@@ -1,0 +1,37 @@
+#--------------------------------------------------------------------------------
+# Assembly Line: weiss
+#--------------------------------------------------------------------------------
+
+# See docs at http://cloudfactory.com/developers/
+# See example lines at http://cloudfactory.com/developers/lines/
+
+# Run `cf login` OR manually specify your API key below (See http://cloudfactory.com/developers/resources/account.html)
+
+title: weiss
+public: false
+public: true
+description: A shiny new assembly line ready for you to customize. Right now it is finding people dates (uncomment and try for fun) but you should just replace everything below accordingly for your line.
+
+# Department to build line in (See http://cloudfactory.com/developers/resources/department.html)
+department: Web Research
+
+# Line Input Formats (see http://cloudfactory.com/developers/resources/input_format.html)
+input_formats:
+  - name: image_url
+    required: true
+    valid_type: url
+# Stations (see http://cloudfactory.com/developers/resources/station.html)
+stations:
+  # Sample Station #1: WORKER looks at photo of person seeking a date and determines their gender and approximate age
+  - station:
+      station_index: 1
+      station_type: work      # work, improve, tournament
+      # Worker (see http://cloudfactory.com/developers/resources/worker.html)
+      worker:
+        worker_type: human    # "human" or name of robot (google_translate_robot, etc)
+        num_workers: 1
+        reward: 2
+      custom_task_form:
+        form_title: Extract the URL from the given link
+        instruction: Look through website and find the URL
+        html: station1.html

@@ -1,0 +1,663 @@
+<!doctype>
+<html>
+<head>
+
+  <script type="text/javascript" src="http://bizcardarmy-run.s3.amazonaws.com/jquery-1.6.2.min.js"></script>
+  <script type="text/javascript" src="http://bizcardarmy-run.s3.amazonaws.com/jquery-ui-1.8.16.custom.min.js"></script>
+  <script type="text/javascript" src="http://bizcardarmy-run.s3.amazonaws.com/jquery.easing.1.3.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+  <script src="http://tomb-finder.s3.amazonaws.com/facefiles/lightbox.js" type="text/javascript"></script> 
+  <script type="text/javascript" src="jquery.qtip-1.0.0-rc3.min.js"></script>
+
+</head>
+<style>
+
+body {
+  background:cornflowerBlue;
+  font-family: Arial, Verdana, sans-serif;
+  width:960px;
+  min-height:510px;
+  margin-left:auto;
+  margin-right:auto;
+  border:2px solid black;
+}
+
+#container{
+  padding-top: 15px;
+  font-family: Arial, Verdana, sans-serif;
+  width:960px;
+  min-height:510px;
+  margin-left:auto;
+  margin-right:auto;
+  background:white;
+  padding-bottom: 2px;
+}
+
+
+#input_URL{
+  background-color: #E1E1E1;
+  height: 27px;
+  margin-left: 13em;
+  margin-top: -28px;
+  position: absolute;
+  text-align: center;
+  width: 700px;
+}
+#input{
+  padding-bottom: 20px;
+  text-align: left;
+}
+h3{
+  margin-bottom: 3px;
+  padding-bottom: 2px;
+  padding-top: 3px;
+}
+
+#instruction {
+  border-bottom: 2px solid #000;
+  position: relative;
+  width: 915px;
+  padding-left: 17px;
+}
+#info_position{
+  width:185px;
+}
+
+h3{
+  margin-bottom: 3px;
+  padding-bottom: 2px;
+  padding-top: 3px;
+}
+
+#payment_methods{
+  width:89%;
+  border:1px solid #42647F;
+}
+#additional{
+  width:89%;
+  margin-top: 15px;
+  border:1px solid #42647F;
+}
+#ads{
+  padding-top:2px;
+}
+#paypal{
+  width:89%;
+  margin-top: 15px;
+  border:1px solid #42647F;
+}
+legend {
+  color: #42647F;
+  font-size: 16px;
+  font-style: italic;
+  padding: 0.2em 0.5em;
+}
+label {
+  padding-left: 12px;
+  text-align: left;
+}
+#btnDel{
+  text-align:right;
+}
+
+#instruction_content {
+  /*  padding-top: 10px;*/
+  display: none;
+}
+
+#click_for_instruction {
+  bottom: -27px;
+  margin-right: 35px;
+  position: absolute;
+  right: 25px;
+  text-align: right;
+}
+
+
+#show_instruction {
+  border: 2px solid #E1E1E1;
+  padding: 6px;
+  border-top: none;
+  cursor: pointer;
+  background-color: #E1E1E1;
+}
+#show_instruction:hover {
+  color: black;
+}
+
+.all_rounded_corners {
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -khtml-border-radius: 10px;
+  border-radius: 10px;
+}
+.bottom_rounded_corners {
+  -moz-border-radius-bottomright: 10px;
+  -moz-border-radius-bottomleft: 10px;
+  -webkit-border-bottom-right-radius: 10px;
+  -webkit-border-bottom-left-radius: 10px;
+}
+.right_rounded_corners {
+  -moz-border-radius-topright: 10px;
+  -moz-border-radius-bottomright: 10px;
+  -webkit-border-top-right-radius: 10px;
+  -webkit-border-bottom-right-radius: 10px;
+}
+#add_more{
+  padding-top: 10px;
+  text-align: left;
+}
+#add_one_more{
+  padding-top: 10px;
+  text-align: left;
+}
+a {
+  color: #42647F;
+}
+
+a:hover {
+  color: #4b96bd;
+}
+
+#wrapper {
+  width: 1025px;
+  padding-top: 2em;
+  margin: 0 auto;
+  padding-left: 0.5em;
+}
+
+input{
+  font-size: 16px;
+  height: 23px;
+  width: 185px;
+}
+
+
+#other_payment_mtd{
+  width:150px;
+}
+#test{
+  padding-bottom:2px;
+}
+.form_submit{
+  text-align: right;
+  margin-right: 5em;
+  margin-top: 13px;
+}
+input.submitbutton {
+  font-size:111%;
+  width:125px;
+  height:25px;
+  margin-right: 10px;
+}
+
+.form_submit input[type='submit']:hover {
+  opacity: 1;
+}
+.header-txt{
+  font-size:25px;
+}
+fieldset{
+  padding-top:1px;
+}
+select{
+  height: 25px;
+  padding-top: 4px;
+}
+
+.clonedInput .clonedInput1{
+  margin-bottom :5px;
+}
+
+.comments{
+  margin-top:7px
+}
+
+.comments input{
+  width:150px
+}
+
+#add_paymentmethod{
+  padding-left:11px;
+  color:blue;
+}
+
+a{
+  color:#CD5C5C;
+}
+#show_instruction{
+  color:#87AAAE;
+}
+
+#add_additional_ads{
+  padding-left:11px;
+}
+
+#facebox { position: absolute;width: 100%;top: 0;left: 0;z-index: 1000000000;text-align: left; }
+#facebox .popup { position: relative;}
+#facebox table { margin: auto; border-collapse: collapse; }
+#facebox .body { padding: 10px; background: #fff; width: 580px; border: 8px solid #737373;}
+#facebox .loading {	text-align: center;}
+#facebox .footer { border-top: 1px solid #DDDDDD; padding-top: 5px;margin-top: 10px;text-align: right; }
+
+
+input.button_rem {
+  background-image: url('rem.png'); /* 16x16 px */
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  height: 23px;
+  padding-left: 10px;
+  vertical-align: middle;
+  width:25px;
+  float:right;
+}
+
+
+
+
+</style>
+<body>
+  <div id = "container">
+    <div id = "instruction">
+      <h3 class="header-txt"> Payment Method Information </h3>
+      <div id = "instruction_content" class = "hidden">
+        <div id = "instruction_text">
+          <div id = "general_instruction" style="display:none" >
+            <h3>Instructions</h3>
+            <ol>
+              <li> Open the given Online-Shop-URL and fill all the fields from the information of the URL.</li>
+              <li> If there are logos of payment methods (e.g. MasterCard, Visa, PayPal etc.) select them all in dropdown menu following the order (from left to right, then from top to bottom) in which they appear.If the payment method is not included in dropdown then choose other and specify them in additional field.</li>
+              <li> Also rank the logo sizes,1 being the biggest and 10 smallest. If logos are of similar size give these logos the same rank.</li>
+              <li> Also mention if the logo shows any additional content besides the pure brand (e.g. like faster,safer etc.) or communicates additional benefits via additional text around the logo.</li>
+              <li> If a PayPal logo is present choose which logo is being used.</li>
+              <li> If additional ads or banners advertising payment methods, displayed on the online shop's website.Mention these advertised payment method along with its position (e.g.top left corner of the online shop)</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+      <div id = "click_for_instruction">
+        <a href = "#general_instruction" id = "show_instruction" rel="facebox" id="inst_button_text" class="bottom_rounded_corners">View Instructions</a>
+      </div>
+    </div>
+    <div id = "wrapper">
+      <form id = 'form-panel'>
+        <div id='input'>
+          <h3>Open this URL : </h3>
+          <div id='input_URL' class ='textarea'>
+            {{input_URL}}
+          </div>
+        </div>
+        <fieldset id="payment_methods">
+          <legend>Payment Methods</legend>
+          <div class="payment_mtd clonedInput" id="payment_method">
+            <span>
+              <label for="payment_option">Which logo</label>
+              <select name ="output[payment_option]" id="payment_option" required>
+                <option value="" >Select One</option>
+				<option value="None">None</option>
+                <option value="Other">OTHER</option>                
+                <option value="Amazon Payments ">Amazon Payments </option>
+                <option value="American Express">American Express</option> 
+                <option value="BFS finance">BFS finance </option>
+                <option value="Billpay">Billpay</option> 
+                <option value="BillSAFE">BillSAFE</option> 
+                <option value="boku ">boku </option>
+                <option value="Cash‐Ticket ">Cash‐Ticket </option>
+                <option value="ClickandBuy ">ClickandBuy </option>
+                <option value="DHL Checkout ">DHL Checkout </option>
+                <option value="Diners">Diners</option> 
+                <option value="Facebook Credits">Facebook Credits</option> 
+                <option value="giropay">giropay </option>
+                <option value="Google Checkout">Google Checkout</option> 
+                <option value="Lastschrift / Bankeinzug">Lastschrift / Bankeinzug</option> 
+                <option value="iclear">iclear</option> 
+                <option value="JCB">JCB</option>
+                <option value="Klarna">Klarna </option>
+                <option value="Maestro">Maestro</option>
+                <option value="MasterCard">MasterCard</option> 
+                <option value="mobuy">mobuy</option> 
+                <option value="mopay">mopay</option> 
+                <option value="mpass">mpass</option>
+                <option value="Nachnahme">Nachnahme</option>
+                <option value="paybox">paybox</option>
+                <option value="paymorrow">paymorrow</option>
+                <option value="PayPal">PayPal</option>
+                <option value="paysafecard">paysafecard</option>
+                <option value="RatePAY">RatePAY</option>
+                <option value="Rechnung by sofort">Rechnung by sofort</option>
+                <option value="Skrill (Moneybookers)">Skrill (Moneybookers)</option>
+                <option value="sofortlastschrift">sofortlastschrift</option>
+                <option value="sofortüberweisung">sofortüberweisung</option>
+                <option value="tradoria checkout">tradoria checkout</option>
+                <option value="V.me">V.me</option>
+                <option value="Visa">Visa</option>
+                <option value="Vorkasse / Überweisung">Vorkasse / Überweisung</option>
+                <option value="Web.Cent">Web.Cent</option>
+                <option value="Wirecard">Wirecard</option>
+                <option value="Zong">Zong</option>
+                <option value=""></option>
+              </select>
+              <span id='comment' class='comments'>
+                <label>Name</label>
+                <input id='other_payment_mtd' name='output[comment]' type='text' value='' />
+              </span>
+              <label id ="sizehelp" class="sizehelp">Size</label>
+              <select name="output[logosize]" id="logosize" required>
+                <option value="">Select</option>
+                <option value="none">none</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+              </select>
+              <label>Extra Info</label>
+              <a href="#" id="extrainfohelp1" class="extrainfohelp">?</a> 
+              <input id="extrainfo" name="output[extrainfo]" type="text" class="" value=""  />
+              <input type="button" name="bt_remove_payment"  id="bt_remove_payment" title="Remove row" class="button_rem" />
+            </span>
+          </div>
+          <div id="add_paymentmethod">
+            <a href ="#" id ="btnAdd">Add 1 more </a>       
+          </div>
+        </fieldset> 
+        <fieldset id="paypal">
+          <legend>PayPal Logo Type</legend>
+          <div class="paylogo" id="paypal_logo">
+            <label>Which paypal logo is being used?</label>
+            <select name="output[paypal_logo]" >
+              <option value="">Select One</option>
+              <option value="PayPal Logo">PayPal Logo</option>
+              <option value="PayPal Logo with Slogan">PayPal Logo with Slogan</option>
+              <option value="PayPal logo with payment method">PayPal logo with payment method</option>
+            </select>
+          </div>
+        </fieldset>
+        <fieldset id="additional">
+          <legend>Additional Ads/Banners</legend>
+          <div class="additional_banners clonedInput1" id="ads">
+            <label>Name</label>
+            <select name ="output[additional_banner]" id="ads_name" required>
+              <option value="">Select One</option>
+              <option value="None ">None</option>
+              <option value="Amazon Payments ">Amazon Payments </option>
+              <option value="American Express">American Express</option> 
+              <option value="BFS finance">BFS finance </option>
+              <option value="Billpay">Billpay</option> 
+              <option value="BillSAFE">BillSAFE</option> 
+              <option value="boku ">boku </option>
+              <option value="Cash‐Ticket ">Cash‐Ticket </option>
+              <option value="ClickandBuy ">ClickandBuy </option>
+              <option value="DHL Checkout ">DHL Checkout </option>
+              <option value="Diners">Diners</option> 
+              <option value="Facebook Credits">Facebook Credits</option> 
+              <option value="giropay">giropay </option>
+              <option value="Google Checkout">Google Checkout</option> 
+              <option value="Lastschrift / Bankeinzug">Lastschrift / Bankeinzug</option> 
+              <option value="iclear">iclear</option> 
+              <option value="JCB">JCB</option>
+              <option value="Klarna">Klarna </option>
+              <option value="Maestro">Maestro</option>
+              <option value="MasterCard">MasterCard</option> 
+              <option value="mobuy">mobuy</option> 
+              <option value="mopay">mopay</option> 
+              <option value="mpass">mpass</option>
+              <option value="Nachnahme">Nachnahme</option>
+              <option value="paybox">paybox</option>
+              <option value="paymorrow">paymorrow</option>
+              <option value="PayPal">PayPal</option>
+              <option value="paysafecard">paysafecard</option>
+              <option value="RatePAY">RatePAY</option>
+              <option value="Rechnung by sofort">Rechnung by sofort</option>
+              <option value="Skrill (Moneybookers)">Skrill (Moneybookers)</option>
+              <option value="sofortlastschrift">sofortlastschrift</option>
+              <option value="sofortüberweisung">sofortüberweisung</option>
+              <option value="tradoria checkout">tradoria checkout</option>
+              <option value="V.me">V.me</option>
+              <option value="Visa">Visa</option>
+              <option value="Vorkasse / Überweisung">Vorkasse / Überweisung</option>
+              <option value="Web.Cent">Web.Cent</option>
+              <option value="Wirecard">Wirecard</option>
+              <option value="Zong">Zong</option>
+              <option value=""></option>
+            </select>
+            <label for="position" id="positionlabel">Position</label>
+            <a href="#" id="positionhelp" class="positionhelp">?</a> 
+            <input type="text" name="output[position]"  id="position" required/>
+            <input type="button" name="bt_remove_payment"  id="bt_remove_additional" title="Remove row" class="button_rem" />
+          </div>
+          <div id="add_additional_ads">
+            <a href ="#" id ="btnAdd1">Add 1 more </a>
+          </div>
+        </fieldset>
+        <section class = "form_submit">
+          <input type="submit" class="submitbutton" value = "Submit" tabindex="17" />
+        </section>
+      </div>
+    </form> <!-- End of form-panel form-->
+  </div> <!-- End of container -->
+</div>
+</body>
+
+
+<script>
+
+$(document).ready(function() {
+
+/* hide the optional fields */
+$('#paypal').hide();
+$('#comment').hide();
+$('.button_rem').hide();
+
+/* Clones the payment method div and changes the attributes and add qtip tooltips */  
+$('#btnAdd').click(function() {        
+  var num     = $('.clonedInput').length;
+  var newNum  = num + 1;
+  var $temp =$("#payment_method" +newNum )
+  var $newElemTest    = $("#payment_method" ).clone().attr('id', 'payment_method' + newNum);
+  $newElemTest.find('#payment_option').attr('id', 'payment_option' + newNum).attr('name', 'output[payment_option' + newNum + ']');     
+  $newElemTest.find('#logosize').attr('id', 'logosize' + newNum).attr('name', 'output[logosize' + newNum + ']');  
+  $newElemTest.find('#extrainfo').attr('id', 'extrainfo' + newNum).attr('name', 'output[extrainfo' + newNum + "]").val("");
+  $newElemTest.find('#other_payment_mtd').attr('id', 'other_payment_mtd' + newNum).attr('name', 'output[other_payment_mtd' + newNum + ']').val("");
+  $newElemTest.find('#comment').attr('id', 'comment' + newNum).attr('name', 'comment' + newNum).val("");
+  $newElemTest.find('#bt_remove_payment').attr('id', 'bt_remove_payment' + newNum).attr('name', 'bt_remove_payment' + newNum).val("");
+  $newElemTest.effect("highlight", {}, 2000).appendTo("#payment_methods") ;
+  $("#add_paymentmethod").appendTo("#payment_methods") ;
+  $('#comment'+newNum).hide();
+  $('#bt_remove_payment'+newNum).show();
+  $('.extrainfohelp').qtip(
+    {
+      content: 'Mention if the logo shows any additional content besides the pure brand (e.g. like faster,safer etc.) or communicates additional benefits via additional text around the logo' ,
+      style: { 
+        width: 200,
+        padding: 5,
+        background: '#B7D7EF',
+        color: 'black',
+        textAlign: 'center',
+        border: {
+          width: 7,
+          radius: 5,
+          color: '#B7D7EF'
+        },
+        tip: 'topLeft',
+        name: 'dark' 
+      }
+    });
+
+
+    $('.sizehelp').qtip(
+      {
+        content: 'Rank the logo sizes,1 being the biggest and 10 smallest. If logos are of similar size give these logos the same rank.',
+        style: { 
+          width: 200,
+          padding: 5,
+          background: '#B7D7EF',
+          color: 'black',
+          textAlign: 'center',
+          border: {
+            width: 7,
+            radius: 5,
+            color: '#B7D7EF'
+          },
+          tip: 'topLeft',
+          name: 'dark' 
+        }
+      });
+    });
+
+    $("#payment_option").change( function () { 
+      if($('#payment_option').val()=='PayPal'){
+        $('#paypal').effect("highlight", {}, 2000).fadeIn(1000);
+      }
+      else $('#paypal').hide();
+      if($('#payment_option').val()=='Other'){
+        $('#comment').effect("highlight", {}, 2000).fadeIn(1000);
+      }
+      else $('#comment').hide();
+	if($("#payment_option").val()== "None"){
+        $('#btnAdd').hide();
+      }
+	else $('#btnAdd').show();
+    });
+
+    $("#additional").change( function () { 
+	if($("#ads_name").val()=="None ")
+	 	$('#btnAdd1').hide();
+	else $('#btnAdd1').show();
+    });
+
+
+/* Displays additional fields according to the option selected  */  
+$('#payment_methods').change(function(){
+  var num     = $('.clonedInput').length;
+  var a;
+  var b;	
+  $("#payment_option" + num).click( function () { 
+    if($("#payment_option" + num).val()== "PayPal"){
+      $('#paypal').show().effect("highlight", {}, 2000);
+      a=num;
+    }
+    else if(a==num){$('#paypal').hide();}
+    if($("#payment_option" + num).val()== "Other"){
+      $('#comment'+num).effect("highlight", {}, 2000).fadeIn(1000);
+      b=num;
+    }
+    else if(b==num){$('#comment'+num).hide();}
+    if($("#payment_option").val()== "None"){
+        $('#btnAdd').hide();
+      }
+  });
+});
+
+/* Clones the additional banner and changes the attributes and add qtip tooltips */  
+$('#btnAdd1').click(function() {    
+  var num1     = $('.clonedInput1').length;
+  var newNum1  = num1 + 1;
+  var $newElemTest1    = $("#ads" ).clone().attr('id', 'ads' + newNum1);
+  $newElemTest1.find('#ads_name').attr('id', 'ads_name' + newNum1).attr('name', 'name' + newNum1);     
+  $newElemTest1.find('#position').remove();  
+  $newElemTest1.find('#positionhelp').remove();
+  $newElemTest1.find('#positionlabel').remove(); 
+  $newElemTest1.find('#bt_remove_additional').attr('id', 'bt_remove_additional' + newNum1).attr('name', 'bt_remove_additional' + newNum1).val("");
+  $newElemTest1.effect("highlight", {}, 2000).appendTo("#additional") ;
+  $("#add_additional_ads").appendTo("#additional") ;
+  $('#bt_remove_additional'+newNum1).show();
+  $('.positionhelp').qtip(
+    {
+      content: 'Mention these advertised payment method along with its position (e.g.top left corner of the online shop)',
+      style: { 
+        width: 200,
+        padding: 5,
+        background: '#B7D7EF',
+        color: 'black',
+        textAlign: 'center',
+        border: {
+          width: 7,
+          radius: 5,
+          color: '#B7D7EF'
+        },
+        tip: 'topLeft',
+        name: 'dark' 
+      }
+    });
+  });
+
+  $(".button_rem").live("click",(function() {     
+    $(this).parent().remove();
+    }));
+    
+    
+
+
+/* Displays the instructions in the modal box */  
+$('a[rel*=facebox]').facebox();
+
+/* Displays the informations usgin qtips */  
+$('.extrainfohelp').qtip(
+  {
+    content: 'Mention if the logo shows any additional content besides the pure brand (e.g. like faster,safer etc.) or communicates additional benefits via additional text around the logo' ,
+    style: { 
+      width: 200,
+      padding: 5,
+      background: '#B7D7EF',
+      color: 'black',
+      textAlign: 'center',
+      border: {
+        width: 7,
+        radius: 5,
+        color: '#B7D7EF'
+      },
+      tip: 'topLeft',
+      name: 'dark' 
+    }
+  });
+
+  $('#positionhelp').qtip(
+    {
+      content: 'Mention these advertised payment method along with its position (e.g.top left corner of the online shop)',
+      style: { 
+        width: 200,
+        padding: 5,
+        background: '#B7D7EF',
+        color: 'black',
+        textAlign: 'center',
+        border: {
+          width: 7,
+          radius: 5,
+          color: '#B7D7EF'
+        },
+        tip: 'topLeft',
+        name: 'dark' 
+      }
+    });
+
+    $('#sizehelp').qtip(
+      {
+        content: 'Rank the logo sizes,1 being the biggest and 10 smallest. If logos are of similar size give these logos the same rank.',
+        style: { 
+          width: 200,
+          padding: 5,
+          background: '#B7D7EF',
+          color: 'black',
+          textAlign: 'center',
+          border: {
+            width: 7,
+            radius: 5,
+            color: '#B7D7EF'
+          },
+          tip: 'topLeft',
+          name: 'dark' 
+        }
+      });
+    });
+
+    </script>
+
+    </html>
